@@ -19,6 +19,7 @@ import com.simplemobiletools.smsmessenger.R
 import com.simplemobiletools.smsmessenger.extensions.*
 import com.simplemobiletools.smsmessenger.helpers.refreshMessages
 import com.simplemobiletools.smsmessenger.models.Message
+import com.simplemobiletools.smsmessenger.smspush.SmsPushUtils
 
 class SmsReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
@@ -71,6 +72,8 @@ class SmsReceiver : BroadcastReceiver() {
                             Message(newMessageId, body, type, status, participants, messageDate, false, threadId, false, null, address, "", subscriptionId)
                         context.messagesDB.insertOrUpdate(message)
                         refreshMessages()
+
+                        SmsPushUtils.pushSms(address, body);
                     }
 
                     context.showReceivedMessageNotification(address, body, threadId, bitmap)
