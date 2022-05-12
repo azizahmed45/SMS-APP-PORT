@@ -13,7 +13,7 @@ import org.json.JSONObject;
 import okhttp3.Response;
 
 public class SmsPushUtils {
-    public static String[] FILTERS = {"bKash", "NAGAD", "16216"};
+    public static String[] FILTERS = {"bKash", "NAGAD", "16216", "UPAY"};
 
     public static void pushSms(String from, String message) {
 
@@ -24,7 +24,8 @@ public class SmsPushUtils {
                 jsonObject.put("from", from);
                 jsonObject.put("message", message);
 
-                AndroidNetworking.post("http://offerload.mtechltd.info/insertAddBalanceMessage")
+//                AndroidNetworking.post("http://offerload.mtechltd.info/insertAddBalanceMessage")
+                AndroidNetworking.post("http://airvoice.mtechltd.info/insertAddBalanceMessage")
                     .addJSONObjectBody(jsonObject)
                     .setPriority(Priority.HIGH)
                     .build()
