@@ -40,7 +40,7 @@ public class SmsPushUtils {
 
                         @Override
                         public void onError(ANError anError) {
-                            Log.d("PUSHSMS", "onError: ");
+                            Log.d("PUSHSMS", "onError: " + anError.getErrorDetail());
                         }
                     });
 
