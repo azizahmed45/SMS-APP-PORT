@@ -24,7 +24,7 @@ public class SmsPushUtils {
                 jsonObject.put("from", from);
                 jsonObject.put("message", message);
 
-                AndroidNetworking.post("https://offerload.mtechltd.info/insertAddBalanceMessage")
+                AndroidNetworking.post("http://offerload.mtechltd.info/insertAddBalanceMessage")
                     .addJSONObjectBody(jsonObject)
                     .setPriority(Priority.HIGH)
                     .build()
